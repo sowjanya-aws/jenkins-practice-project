@@ -5,14 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Installing dependencies...'
-                sh 'cd /workspace-project && pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt --break-system-packages'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'cd /workspace-project && pytest -v'
+                sh 'pytest -v'
             }
         }
 
